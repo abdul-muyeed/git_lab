@@ -6,7 +6,7 @@ public class StudentList {
     public static void main(String[] args) {
         // Check if an argument is provided
         if (args.length == 0) {
-            System.out.println("Please enter a valid argument. (a, r, c, +WORD, ?WORD)");
+            System.out.println(Constant.INVALID_MESSAGE);
             return;
         }
 
@@ -14,11 +14,11 @@ public class StudentList {
 
         if (operation.equals("a")) {
             // Load and display all student data
-            System.out.println("Loading data ...");
+            System.out.println(Constant.LOADING);
             try {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
-                                new FileInputStream("students.txt")));
+                                new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
                 String students[] = dataLine.split(",");
                 for (String student : students) {
@@ -28,14 +28,14 @@ public class StudentList {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.LOADED);
         } else if (operation.equals("r")) {
             // Load data and display a random student
-            System.out.println("Loading data ...");
+            System.out.println(Constant.LOADING);
             try {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
-                                new FileInputStream("students.txt")));
+                                new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
                 String students[] = dataLine.split(",");
                 int bound = students.length;
@@ -47,13 +47,13 @@ public class StudentList {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.LOADED);
         } else if (operation.startsWith("+")) {
             // Add a new student to the list
-            System.out.println("Loading data ...");
+            System.out.println(Constant.LOADING);
             try {
                 BufferedWriter writer = new BufferedWriter(
-                        new FileWriter("students.txt", true));
+                        new FileWriter(Constant.FILE_NAME, true));
                 String newStudent = operation.substring(1);
                 Date currentDate = new Date();
                 String dateFormatPattern = "dd/MM/yyyy - hh:mm:ss a";
@@ -64,14 +64,14 @@ public class StudentList {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.LOADED);
         } else if (operation.startsWith("?")) {
             // Search for a specific student
-            System.out.println("Loading data ...");
+            System.out.println(Constant.LOADING);
             try {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
-                                new FileInputStream("students.txt")));
+                                new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
                 String searchQuery = operation.substring(1);
                 int index = dataLine.indexOf(searchQuery);
@@ -84,14 +84,14 @@ public class StudentList {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.LOADED);
         } else if (operation.equals("c")) {
             // Count the number of words in the data
-            System.out.println("Loading data ...");
+            System.out.println(Constant.LOADING);
             try {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(
-                                new FileInputStream("students.txt")));
+                                new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
                 char characters[] = dataLine.toCharArray();
                 int wordCount = 1;
@@ -105,9 +105,9 @@ public class StudentList {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Constant.LOADED);
         } else {
-            System.out.println("Please enter a valid argument. (a, r, c, +WORD, ?WORD)");
+            System.out.println(Constant.INVALID_MESSAGE);
         }
     }
 }
