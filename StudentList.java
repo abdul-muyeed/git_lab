@@ -12,7 +12,7 @@ public class StudentList {
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
-			String i[] = r.split(",");			
+			String i[] = r.split(",");		
 			for(String j : i) { System.out.println(j); }
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");
@@ -26,10 +26,12 @@ public class StudentList {
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
 			System.out.println(r);
-			String i[] = r.split(",");	
+			String i[] = r.split(",");
+			int bound = i.length+1;
 			Random x = new Random();
-				int y = x.nextInt();
-					System.out.println(i[y]);
+			int y = x.nextInt(bound);
+			System.out.println(i[y]);
+
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");			
 		}
@@ -58,14 +60,15 @@ public class StudentList {
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
 			String i[] = r.split(",");	
-			boolean done = false;
 			String t = args[0].substring(1);
-			for(int idx = 0; idx<i.length && !done; idx++) {
-				if(i[idx].equals(t)) {
-					System.out.println("We found it!");
-						done=true;
-				}
+			int index = r.indexOf(t);
+			if(index == -1) {
+				 System.out.println("Student not found!"); 
 			}
+			else {
+				 System.out.println("We found it!"); 
+			}
+			s.close();
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
@@ -77,19 +80,21 @@ public class StudentList {
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
 			String D = s.readLine();
-			char a[] = D.toCharArray();			
-			boolean in_word = false;
-			int count=0;
+			char a[] = D.toCharArray();
+			int count=1;
 			for(char c:a) {
 				if(c ==' ') 
 				{
-					if (!in_word) {	count++; in_word =true;	}
-					else { in_word=false;}			
+					count++; 
+							
 				}
 			}
 			System.out.println(count +" word(s) found " + a.length);
+			s.close();
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
+		}else{
+			System.out.println("Please enter a valid argument.(a, r, c, +WORD, ?WORD)");
 		}
 	}
 }
