@@ -73,7 +73,6 @@ public class StudentList {
                         new InputStreamReader(
                                 new FileInputStream("students.txt")));
                 String dataLine = reader.readLine();
-                String students[] = dataLine.split(",");
                 String searchQuery = operation.substring(1);
                 int index = dataLine.indexOf(searchQuery);
                 if (index == -1) {
