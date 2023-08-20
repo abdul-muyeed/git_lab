@@ -1,0 +1,24 @@
+Improtent git commmands:
+cd .. =>
+cd file-path =>
+ls =>
+pwd =>
+cd file-path =>
+git --version  =>
+java --version  =>
+git clone repo-http-link =>
+git add . =>
+git add file-name =>
+git commit -m "sms" =>
+git status =>
+git branch =>
+git branch -c branch-name =>
+git checkout branch-name =>
+git checkout -b branch-name =>
+git log =>
+git diff branch-name1 branch-name2 =>
+git merge branch-name =>
+git remote remove origin  =>
+git push origin branch-name=>
+press ctrl + C =>
+press Q =>
