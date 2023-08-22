@@ -74,11 +74,11 @@ public class StudentList {
                                 new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
                 String searchQuery = operation.substring(1);
-                int index = dataLine.indexOf(searchQuery);
-                if (index == -1) {
-                    System.out.println("Student not found!");
-                } else {
+                boolean index = dataLine.contains(searchQuery);
+                if (index) {
                     System.out.println("Student found!");
+                } else {
+                    System.out.println("Student not found!");
                 }
                 reader.close();
             } catch (Exception e) {
@@ -93,14 +93,8 @@ public class StudentList {
                         new InputStreamReader(
                                 new FileInputStream(Constant.FILE_NAME)));
                 String dataLine = reader.readLine();
-                char characters[] = dataLine.toCharArray();
-                int wordCount = 1;
-                for (char character : characters) {
-                    if (character == ' ') {
-                        wordCount++;
-                    }
-                }
-                System.out.println(wordCount + " word(s) found " + characters.length);
+                String students[] = dataLine.split(",");
+                System.out.println(students.length + " word(s) found ");
                 reader.close();
             } catch (Exception e) {
                 e.printStackTrace();
